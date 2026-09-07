@@ -1,0 +1,35 @@
+name: Sign PlayStatation Mobile Application
+description: Sony-Signs a PlayStation Mobile Application.
+inputs:
+    input:
+      description: Input file
+      required: true
+    output:
+      description: Output file
+      required: true
+    content_id:
+      description: Content ID for the application
+      required: true
+    game_key:
+      description: Unique Key for the Game
+      required: false
+    vita_hmac:
+      description: Vita HMAC Key for verifying Executables
+      required: false
+    android_hmac:
+      description: Android HMAC Key for verifying Executables
+      required: false
+runs:
+    using: composite
+    steps:
+    - name: Install dependencies
+      id: install-deps
+      run: pip3 install requests
+      shell: pwsh
+    - name: Download & Run sign_pss
+      id: run-sign-pss
+      run: python3 ${{ github.action_path }}/dist/download-sign-pss.py ${{ inputs.input }} ${{ inputs.output }} ${{ inputs.content_id }} ${{ inputs.game_key }} ${{ inputs.vita_hmac }} ${{ inputs.android_hmac }}
+      shell: pwsh
+branding:
+    icon: star
+    color: green

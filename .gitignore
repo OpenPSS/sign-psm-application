@@ -1,0 +1,3 @@
+test/PsmTestSuite-signed
+dist/sign_pss.exe
+dist/sign_pss
