@@ -33,3 +33,15 @@ jobs:
             input: test/PsmTestSuite
             output: test/PsmTestSuite-signed
             content_id: UM0999-NPNA99999_00-0000000000000000
+  sign_pss_macos:
+    runs-on: macos-latest
+    name: 'test sign-pss macos'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Sign Example PSM Game
+        uses: ./
+        with:
+            input: test/PsmTestSuite
+            output: test/PsmTestSuite-signed
+            content_id: UM0999-NPNA99999_00-0000000000000000
