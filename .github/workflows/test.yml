@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sign_psm:
+  sign_pss_windows:
     runs-on: windows-latest
     name: 'test sign-pss windows'
     steps:
@@ -21,6 +21,7 @@ jobs:
             input: test/PsmTestSuite
             output: test/PsmTestSuite-signed
             content_id: UM0999-NPNA99999_00-0000000000000000
+  sign_pss_linux:
     runs-on: ubuntu-latest
     name: 'test sign-pss linux'
     steps:
