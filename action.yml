@@ -24,7 +24,7 @@ runs:
     steps:
     - name: Install dependencies
       id: install-deps
-      run: pip3 install requests
+      run: pip3 install requests --break-system-packages
       shell: pwsh
     - name: Download & Run sign_pss
       id: run-sign-pss
